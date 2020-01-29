@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- Helps with mobile display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://kit.fontawesome.com/b59fe0028f.js"></script>
+
+    <title>Gannon's Portfolio</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-custom navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="./index.html">Gannon Prudhomme</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- div Might not be needed? -->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./professional-image.html">Professional Image</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./service.html">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./aboutme.html">About Me</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Manually center the body content, rather than using bootstrap's -->
+        <div class="container-fluid">
+            <div class="row"> <!-- Main body here-->
+                <div class="col-sm-2"></div>
+                <div class="col-lg-8">
+                    <div id="portfolio-title">Portfolio</div>
+                    <div id="github-link"><a class="link" href="http://github.com/gannonprudhomme">Github</a></div>
+                    <hr class="name-divider">
+                    <div id="portfolio-list">
+                        <!-- Clicking on one of these will redirect you to its github page-->
+                        <div class="portfolio-object">
+                            <!-- Need this to change size depending on its contents -->
+                            <div class="project-desc-wrapper">
+                                <!-- Could also make these spans -->
+                                <div class="project-title-tech-wrapper">
+                                    <b>
+                                        <a href="http://github.com/gannonprudhomme/Desktop-Control-Tablet" class="project-title">
+                                            Desktop Control Tablet
+                                        </a>
+                                    </b>
+                                    <span class="project-tech">Node.js, Pug, Electron, CSS, Raspberry Pi</span>
+                                </div>
+
+                                <div class="project-desc">
+                                    A Desktop Companion Tablet built to control my Windows 10 home computer with a Raspberry Pi and touch screen. 
+                                    Focuses on modularity and customizability to allow easy addition and swapping of "modules" and other components. 
+                                    <!-- <br>
+                                    Features:
+                                    <ul>
+                                        <li>Live Spotify current track display and playback control</li> 
+                                        <li>Built in remote volume mixer control for any desktop program</li>
+                                        <li>Change current audio output device</li>
+                                        <li>Live desktop performance(CPU, memory) display</li>
+                                        <li>Modular, which allows any practically any control-feature to be implemented and inserted easily</li>
+                                        <li>Wireless Smart Bulb control and synchronization with f.lux</li>
+                                        <li>Live current weather display and updates</li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-object">
+                            <!-- Need this to change size depending on its contents -->
+                            <div class="project-desc-wrapper">
+                                <!-- Could also make these spans -->
+                                <div class="project-title-tech-wrapper">
+                                    <b>
+                                        <a href="http://github.com/gannonprudhomme/Flokk" class="project-title">
+                                        Flokk
+                                        </a>
+                                    </b>
+                                    <span class="project-tech">Swift, Firebase</span>
+                                </div>
+
+                                <div class="project-desc">
+                                    Flokk is a group-oriented iOS application that allows users to share 6-second videos in private feeds.
+                                    Features include private group feeds and group invites, as well as in-app video recording and editing.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-object">
+                            <!-- Need this to change size depending on its contents -->
+                            <div class="project-desc-wrapper">
+                                <!-- Could also make these spans -->
+                                <div class="project-title-tech-wrapper">
+                                    <a href="http://github.com/gannonprudhomme/Terrain-Generation" class="project-title">
+                                        <b>Terrain Generation</b>
+                                    </a>
+                                    <span class="project-tech">C++, OpenGL</span>
+                                </div>
+
+                                <div class="project-desc">
+                                    A terrain generator written in C++ that uses Perlin noise to output a height map, and OpenGL(4.3)  to render it. 
+                                    Renders over 12 million vertices while still maintaining 60+ frames-per-second using modern OpenGL techniques.
+                                    Other features include:
+                                    <ul>
+                                        <li>Self-contained heightmap Generation</li>
+                                        <li>Specular Lighting</li>
+                                        <li>Bump Mapping</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-object">
+                            <!-- Need this to change size depending on its contents -->
+                            <div class="project-desc-wrapper">
+                                <!-- Could also make these spans -->
+                                <div class="project-title-tech-wrapper">
+                                    <a href="http://github.com/gannonprudhomme/RocketTracker" class="project-title">
+                                        <b>RocketTracker</b>
+                                    </a>
+                                    <span class="project-tech">Java</span>
+                                </div>
+
+                                <div class="project-desc">
+                                    Executable rank tracker written in Java for the video game Rocket League. 
+                                    The purpose of RocketTracker is to make it simple and easy to regularly track your progression through ranks. 
+                                    Likewise, RocketTracker opens more opportunities for stat analysis through things such as per-game stat 
+                                    recording(Goals, Saves, Shots, etc), win-streaks and average stats per session.
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+  <footer>
+    <div id="list-inline-wrapper">
+        <ul id="list-inline">
+            <!-- Mail -->
+            <li>
+                <a href="mailto:gannonprudhomme@tamu.edu">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <!-- LinkedIn -->
+            <li>
+                <a href="http://linkedin.com/in/gannon-prudhomme">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <!-- GitHub -->
+            <li>
+                <a href="http://github.com/gannonprudhomme/">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <!-- Twitter -->
+            <li>
+                <a href="http://twitter.com/gannonprudhomme">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <!-- Instagram -->
+            <li>
+                <a href="http://instagram.com/gannonprudhomme">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <!-- Facebook -->
+            <li>
+                <a href="http://facebook.com/gannon.prudhomme">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+  </footer>
+</html>
