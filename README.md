@@ -2,4 +2,4 @@
 
 Personal website
 
-Directly copied from CSCE 315 Project 0
+Note that this is ~1 year out of date (from 5/5/21)
