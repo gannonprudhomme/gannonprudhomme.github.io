@@ -45,7 +45,7 @@ const allProjects: Project[] = [
     summary:
       "A native iOS app that ranks your watchlist through head-to-head comparisons instead of star ratings.",
     overview:
-      "Cineduel is essentially \"Beli meets movies\": a work-in-progress iOS app I designed and developed solo that ranks your watchlist through head-to-head comparisons instead of star ratings, born out of frustration with Letterboxd's web-like iOS app. It has not launched on the App Store yet.",
+      "Cineduel is essentially \"Beli meets movies\": a work-in-progress iOS app I designed and developed that ranks your watchlist through head-to-head comparisons instead of star ratings, born out of frustration with Letterboxd's web-like iOS app. It has not launched on the App Store yet.",
     highlights: [
       "It is implemented with SwiftUI and TCA, backed by a SQLite database used for local persistence and caching.",
     ],
