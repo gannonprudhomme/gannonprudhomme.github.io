@@ -14,7 +14,7 @@ type Props = {
 };
 
 const { project } = Astro.props;
-const hasActions = Boolean(project.sourceUrl || project.secondaryUrl || project.liveUrl);
+const hasActions = Boolean(project.secondaryUrl || project.liveUrl);
 const screenshotFrameClass = project.mediaKind === "phone" ? "phone-preview" : "screenshot-frame";
 const screenshotImageClass = project.mediaKind === "phone" ? "phone-screenshot" : "screenshot-image";
 ---
@@ -34,11 +34,6 @@ const screenshotImageClass = project.mediaKind === "phone" ? "phone-screenshot" 
           {
             hasActions && (
               <div class="flex flex-wrap items-center gap-2">
-                {project.sourceUrl && (
-                  <a class="btn btn-outline btn-square btn-sm" href={project.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
-                    <img class="social-icon" src="/social/github.svg" alt="" />
-                  </a>
-                )}
                 {project.secondaryUrl && (
                   <a class="btn btn-outline btn-sm" href={project.secondaryUrl} target="_blank" rel="noopener noreferrer">
                     {project.secondaryLabel ?? "Related link"}
