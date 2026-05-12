@@ -99,6 +99,18 @@ body {
   overflow: hidden;
 }
 
+.project-overview-copy a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.project-overview-copy a:hover {
+  color: color-mix(in oklab, var(--color-primary) 82%, white);
+}
+
 .social-icon {
   width: 1.25rem;
   height: 1.25rem;

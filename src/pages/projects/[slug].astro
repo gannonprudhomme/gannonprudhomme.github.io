@@ -72,7 +72,7 @@ const screenshotImageClass = project.mediaKind === "phone" ? "phone-screenshot" 
 
     <section class="mt-12 max-w-3xl space-y-5 text-lg leading-8 text-base-content/80">
       <h2 class="text-2xl font-semibold text-base-content">Overview</h2>
-      <p class="whitespace-pre-line" set:html={project.overview} />
+      <p class="project-overview-copy whitespace-pre-line" set:html={project.overview} />
       {project.highlights.map((highlight) => <p>{highlight}</p>)}
     </section>
 
