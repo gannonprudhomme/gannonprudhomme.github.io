@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectMedia from "../../components/ProjectMedia.astro";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout
+  title="Projects | Gannon Prudhomme"
+  description="Selected projects by Gannon Prudhomme."
+>
+  <section class="site-shell py-14 sm:py-20">
+    <div class="mb-10 max-w-3xl">
+      <h1 class="text-4xl font-bold sm:text-5xl">Projects</h1>
+    </div>
+
+    <div class="project-list">
+      {
+        projects.map((project) => (
+          <article class="project-list-card rounded-box border border-base-300 bg-base-100 shadow-sm">
+            <a class="block aspect-video bg-base-200" href={`/projects/${project.slug}/`} aria-label={`View ${project.title}`}>
+              <ProjectMedia project={project} />
+            </a>
+            <div class="flex flex-col gap-3 p-6">
+              <div class="space-y-2">
+                <div class="flex flex-wrap items-center gap-3">
+                  <h2 class="text-2xl font-semibold">{project.title}</h2>
+                  <span class="badge badge-primary">{project.year}</span>
+                </div>
+                <p>{project.subtitle}</p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {project.tech.map((tech) => <span class="badge badge-ghost">{tech}</span>)}
+              </div>
+              <div class="mt-auto flex flex-wrap gap-3">
+                <a class="btn btn-primary btn-sm" href={`/projects/${project.slug}/`}>
+                  View project
+                </a>
+                {project.sourceUrl && (
+                  <a class="btn btn-ghost btn-sm" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    <img class="social-icon" src="/social/github.svg" alt="" />
+                    GitHub
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

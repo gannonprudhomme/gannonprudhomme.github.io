@@ -1,0 +1,41 @@
+---
+import type { Project } from "../data/projects";
+import ProjectMedia from "./ProjectMedia.astro";
+
+type Props = {
+  project: Project;
+  compact?: boolean;
+};
+
+const { project, compact = false } = Astro.props;
+---
+
+<article class="card project-card border border-base-300 bg-base-100 shadow-sm">
+  <a class="card-link" href={`/projects/${project.slug}/`} aria-label={`View ${project.title}`}></a>
+  <figure>
+    <ProjectMedia project={project} />
+  </figure>
+  <div class="card-body gap-3">
+    <div class="space-y-1.5">
+      <div class="flex flex-wrap items-center gap-2">
+        <h2 class={compact ? "card-title text-xl" : "card-title"}>{project.title}</h2>
+      </div>
+      <p>{project.subtitle}</p>
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+      {project.tech.slice(0, compact ? 4 : 6).map((tech) => <span class="badge badge-ghost">{tech}</span>)}
+    </div>
+
+    <div class="card-actions">
+      <a class="btn btn-primary btn-sm card-action" href={`/projects/${project.slug}/`}>View project</a>
+      {
+        project.sourceUrl && (
+          <a class="btn btn-ghost btn-sm btn-square card-action" href={project.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
+            <img class="social-icon" src="/social/github.svg" alt="" />
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

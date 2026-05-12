@@ -1,5 +1,20 @@
 # gannonprudhomme.github.io
 
-Personal website
+Personal projects site for Gannon Prudhomme.
 
-Note that this is ~1 year out of date (from 5/5/21)
+Built with Astro, Tailwind CSS, and daisyUI. The site is static and deployed to GitHub Pages.
+
+## Commands
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+## Structure
+
+- `/` - Home
+- `/projects/` - Project list
+- `/projects/[slug]/` - Project detail pages

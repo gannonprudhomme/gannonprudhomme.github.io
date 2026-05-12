@@ -1,0 +1,52 @@
+---
+import type { Project } from "../data/projects";
+
+type Props = {
+  project: Project;
+  priority?: boolean;
+};
+
+const { project, priority = false } = Astro.props;
+const fitClass = project.imageFit === "contain" ? "object-contain p-10" : "object-cover";
+const cardScreenshots = project.screenshots?.slice(0, 2) ?? [];
+---
+
+{
+  project.mediaKind === "phone" && cardScreenshots.length > 1 ? (
+    <div class="phone-card-preview bg-base-200">
+      {cardScreenshots.map((screenshot, index) => (
+        <div class:list={["phone-preview", "phone-card-device", index === 0 ? "phone-card-device-primary" : "phone-card-device-secondary"]}>
+          <img
+            src={screenshot.src}
+            alt={index === 0 ? screenshot.alt : ""}
+            class="phone-screenshot"
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </div>
+      ))}
+    </div>
+  ) : project.mediaKind === "phone" ? (
+      <div class="flex h-full w-full items-center justify-center bg-base-200 p-6">
+        <div class="phone-preview" aria-label={project.imageAlt}>
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            class="phone-screenshot"
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </div>
+      </div>
+  ) : (
+    <div class="h-full w-full bg-base-200">
+      <img
+        src={project.image}
+        alt={project.imageAlt}
+        class:list={["h-full w-full", fitClass]}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </div>
+  )
+}

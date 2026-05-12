@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects, type Project } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+const hasActions = Boolean(project.sourceUrl || project.secondaryUrl || project.liveUrl);
+const screenshotFrameClass = project.mediaKind === "phone" ? "phone-preview" : "screenshot-frame";
+const screenshotImageClass = project.mediaKind === "phone" ? "phone-screenshot" : "screenshot-image";
+---
+
+<BaseLayout
+  title={`${project.title} | Gannon Prudhomme`}
+  description={project.summary}
+>
+  <article class="site-shell py-12 sm:py-18">
+    <a class="link-hover link text-sm" href="/projects/">← Projects</a>
+
+    <header class="project-detail-header mt-6">
+      <div class="space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">{project.year}</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <h1 class="text-4xl font-bold leading-tight sm:text-6xl">{project.title}</h1>
+          {
+            hasActions && (
+              <div class="flex flex-wrap items-center gap-2">
+                {project.sourceUrl && (
+                  <a class="btn btn-outline btn-square btn-sm" href={project.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
+                    <img class="social-icon" src="/social/github.svg" alt="" />
+                  </a>
+                )}
+                {project.secondaryUrl && (
+                  <a class="btn btn-outline btn-sm" href={project.secondaryUrl} target="_blank" rel="noopener noreferrer">
+                    {project.secondaryLabel ?? "Related link"}
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a class="btn btn-outline btn-sm" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Live site
+                  </a>
+                )}
+              </div>
+            )
+          }
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {project.tech.map((tech) => <span class="badge badge-ghost">{tech}</span>)}
+        </div>
+        <p class="max-w-3xl text-xl leading-8 text-base-content/75">{project.subtitle}</p>
+      </div>
+    </header>
+
+    {
+      project.screenshots && (
+        <section class="mt-6 space-y-5">
+          <h2 class="text-2xl font-semibold">Screenshots</h2>
+          <div class="screenshot-carousel" aria-label={`${project.title} screenshots`}>
+            {project.screenshots.map((screenshot) => (
+              <figure class={screenshotFrameClass}>
+                <img class={screenshotImageClass} src={screenshot.src} alt={screenshot.alt} loading="lazy" decoding="async" />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="mt-12 max-w-3xl space-y-5 text-lg leading-8 text-base-content/80">
+      <h2 class="text-2xl font-semibold text-base-content">Overview</h2>
+      <p class="whitespace-pre-line" set:html={project.overview} />
+      {project.highlights.map((highlight) => <p>{highlight}</p>)}
+    </section>
+
+    {
+      project.presentation && (
+        <section class="mt-8 max-w-4xl space-y-4">
+          <iframe
+            class="presentation-frame"
+            src={project.presentation.embedUrl}
+            title={project.presentation.title}
+            loading="lazy"
+            allowfullscreen
+          />
+          <div>
+            <a class="link-hover link text-sm" href={project.presentation.externalUrl} target="_blank" rel="noopener noreferrer">Open in Google Slides ↗</a>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      project.demoVideo && project.mediaKind === "phone" && (
+        <section class="mt-14 grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,360px)] lg:items-center">
+          <div class="space-y-4">
+            <h2 class="text-2xl font-semibold">{project.demoVideo.title}</h2>
+            {project.demoVideo.description && (
+              <p class="text-lg leading-8 text-base-content/75">{project.demoVideo.description}</p>
+            )}
+          </div>
+          <figure class="phone-preview">
+            <video
+              class="phone-screenshot"
+              src={project.demoVideo.src}
+              poster={project.demoVideo.poster}
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              preload="metadata"
+            />
+          </figure>
+        </section>
+      )
+    }
+
+    {
+      project.demoVideo && project.mediaKind !== "phone" && (
+        <section class="mt-14 max-w-4xl space-y-4">
+          <h2 class="text-2xl font-semibold">{project.demoVideo.title}</h2>
+          {project.demoVideo.description && (
+            <p class="text-lg leading-8 text-base-content/75">{project.demoVideo.description}</p>
+          )}
+          <figure class="video-frame">
+            <video
+              class="video-media"
+              src={project.demoVideo.src}
+              poster={project.demoVideo.poster}
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              preload="metadata"
+            />
+          </figure>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

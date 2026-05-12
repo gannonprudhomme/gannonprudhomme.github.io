@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = "Gannon Prudhomme",
+  description = "Projects by Gannon Prudhomme, iOS engineer and hobbyist game developer.",
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/projects/", label: "Projects" },
+];
+
+function isActive(href: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+---
+
+<!doctype html>
+<html lang="en" data-theme="projects">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-base-100 text-base-content antialiased">
+    <header class="border-b border-base-300 bg-base-100/95">
+      <nav class="navbar site-shell px-0">
+        <div class="flex-1">
+          <a class="btn btn-ghost px-0 text-lg font-semibold" href="/">Gannon Prudhomme</a>
+        </div>
+        <div class="tabs tabs-box">
+          {
+            navItems.map((item) => (
+              <a
+                class:list={["tab", isActive(item.href) && "tab-active"]}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+  </body>
+</html>
