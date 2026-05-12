@@ -105,8 +105,8 @@ You can read more details about it <a class="link-hover link" href="https://gith
 I also gave a presentation on the sparse voxel octree pipeline, which you can see the slides of below.`,
     highlights: [],
     tech: ["Unity", "C#"],
-    image: "/projects/artificer.jpg",
-    imageAlt: "Artificer gameplay screenshot showing combat in a grassy level",
+    image: "/projects/artificer-stage.jpg",
+    imageAlt: "Artificer wide stage view with a Stone Golem and a Backup Magazine item pickup",
     screenshots: [
       {
         src: "/projects/artificer.jpg",
